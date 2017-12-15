@@ -1,0 +1,33 @@
+<div class="loop-list">
+  <div class="loop-about">
+    <h1>What is Loopster?</h1>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipiscing, elit tempus orci arcu mauris imperdiet, nisl laoreet nam mollis egestas.
+      Volutpat condimentum justo aliquam inceptos per porttitor fusce erat vestibulum, aenean felis habitasse porta auctor
+      nisl bibendum eget, feugiat torquent eleifend mollis sed ad hendrerit duis. Neque varius enim penatibus ac libero inceptos
+      montes, congue phasellus platea interdum dui ultricies feugiat, convallis faucibus per id tempor urna.</p>
+  </div>
+  <div class="loop-projects">
+    <h2>Projects</h2>
+    <p>
+      Below you can listen to previous projects or
+      <a [routerLink]="'/games/looper/editor'">create a new project</a>.
+    </p>
+    <a class="create-new-project-btn" [routerLink]="'/games/looper/editor'">
+      <i class="fa fa-plus"></i> Create New Project</a>
+    <div class="loop-items">
+      <div *ngFor="let loop of loops$" class="loop-item">
+        <h4><a class="loop-icon-item" [routerLink]="['editor/'+loop.key]" (click)="stopLoop()">{{ loop.name }}</a></h4>
+        <a class="loop-icon-item" (click)="playLoop(loop)" [hidden]="loopPlayer.projectPlaying">
+          <i class="fa fa-play-circle-o"></i>
+        </a>
+        <a class="loop-icon-item" (click)="stopLoop()" [hidden]="!loopPlayer.projectPlaying">
+          <i class="fa fa-stop-circle-o"></i>
+        </a>
+        <a class="loop-icon-item" [routerLink]="['editor/'+loop.key]" (click)="stopLoop()">
+          <i class="fa fa-edit"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

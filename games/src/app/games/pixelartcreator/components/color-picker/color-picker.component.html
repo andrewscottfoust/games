@@ -1,0 +1,9 @@
+<div class="col-md-12 color-picker-component">
+  <h3>Color Picker</h3>
+  <div 
+  class="color-picker-item"
+  *ngFor="let color of colors; let i = index;"
+  [id]="'color-'+i"
+  [style.backgroundColor]="color.hex"
+  (click)="setSelectedColor($event, color.hex)"></div>
+</div>

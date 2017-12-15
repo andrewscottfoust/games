@@ -1,0 +1,17 @@
+.pac-projects {
+
+}
+
+.pac-projects .card {
+    padding: 20px;
+    margin: 0px 0px 20px 0px;
+    background-color: #eeeeee;
+}
+
+.pac-projects .card h3 {
+    margin: 0px 0px 0px 0px;
+}
+
+.pac-projects .card p {
+    margin: 20px 0px 20px 0px;
+}

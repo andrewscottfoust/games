@@ -1,0 +1,17 @@
+.pixel-art-creator {
+    width: 100%;
+    margin: 0px 0px 0px 0px;
+    padding: 30px;
+}
+
+.pixel-art-creator .pac-logo {
+    width: 90%;
+    max-width: 800px;
+    margin: 0px auto 50px auto;
+}
+
+.pixel-art-creator .pac-logo img {
+    width: 100%;
+    height: auto;
+    display: block;
+}

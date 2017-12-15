@@ -1,0 +1,31 @@
+.pac-project {
+    width: 100%;
+    padding: 30px;
+}
+.pac-project input {
+    width: 100%;
+    margin: 0px 0px 10px 0px;
+}
+.pac-project form {
+    width: 100%;
+    margin: 30px 0px 0px 0px;
+}
+.pac-project button {
+    margin: 0px 0px 10px 0px;
+}
+.pac-grid {
+    
+}
+.grid-box {
+    width: 20px;
+    height: 20px;
+    display: block;
+    float: left;
+    border: 1px solid #eeeeee;
+}
+
+.grid-box.first-of-row {
+    content: "";
+    display: table;
+    clear: both;
+}

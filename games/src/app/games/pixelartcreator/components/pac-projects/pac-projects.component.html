@@ -1,0 +1,26 @@
+<div class="pac-projects">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-sm-6 col-xs-12" *ngFor="let project of projects">
+                <div class="card">
+                    <div class="card-block">
+                        <h3 class="card-title">{{ project.name }}</h3>
+                        <small>by {{ project.userName }}</small>
+                        <br />
+                        <small class="text-muted">{{ project.lastEditDate | date:'short' }}</small>
+                        <p class="card-text">{{ project.description }}</p>
+                        <div *ngIf="project.userID == currentUserID">
+                            <button class="btn btn-primary btn-sm" [routerLink]="['project/'+project.key]">
+                                <span class="fa fa-pencil"></span> Edit</button>
+                        </div>
+                        <div *ngIf="project.userID != currentUserID">
+                            <button class="btn btn-primary btn-sm" [routerLink]="['project/'+project.key]">
+                                <span class="fa fa-pencil"></span> Edit a Copy</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

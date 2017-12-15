@@ -1,0 +1,12 @@
+.pac-new-project-form {
+    width: 100%;
+    margin: 50px 0px 50px 0px;
+}
+
+.pac-new-project-form .form-group {
+    margin-bottom: 0px;
+}
+
+.pac-new-project-form input {
+    width: 100%;
+}

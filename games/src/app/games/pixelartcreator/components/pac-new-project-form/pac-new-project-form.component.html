@@ -1,0 +1,35 @@
+<div class="pac-new-project-form">
+  <hr>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <form novalidate #f="ngForm" (ngSubmit)="onSubmit(f)" class="form-inline">
+          <div class="col-md-2">
+              <label class="control-label">Columns</label>
+          </div>
+          <div class="col-md-2">
+            <input type="number" class="form-control" [ngClass]="{'is-invalid':colsInput.errors?.required && colsInput.touched || colsInput.errors?.minlength && colsInput.touched || colsInput.value < 1}"
+              [(ngModel)]="cols" name="cols" #colsInput="ngModel" minlength="1" required>
+          </div>
+          <div class="col-md-2">
+              <label class="control-label">Rows</label>
+          </div>
+          <div class="col-md-2">
+            <input type="number" class="form-control" [ngClass]="{'is-invalid':rowsInput.errors?.required && rowsInput.touched || rowsInput.errors?.minlength && rowsInput.touched || rowsInput.value < 1}"
+              [(ngModel)]="rows" name="rows" #rowsInput="ngModel" minlength="1" required>
+          </div>
+          <div class="col-md-4">
+            <input type="submit" value="Create New Project" class="btn btn-primary btn-block">
+          </div>
+        </form>
+      </div>
+      <div *ngIf="colsInput.errors?.required && colsInput.touched" class="invalid-feedback">
+        Number of cols is required
+      </div>
+      <div *ngIf="rowsInput.errors?.required && rowsInput.touched" class="invalid-feedback">
+        Number of rows is required
+      </div>
+    </div>
+  </div>
+  <hr>
+</div>

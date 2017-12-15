@@ -1,0 +1,90 @@
+<div class="pac-project">
+  <div class="row">
+    <a href="#" routerLink="/games/pixelartcreator/" class="btn btn-link">
+      <i class="fa fa-arrow-circle-o-left"></i> Back to art listing
+    </a>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <app-color-picker></app-color-picker>
+      <hr>
+      <div class="container">
+        <h3>Settings</h3>
+        <form novalidate #f="ngForm" (ngSubmit)="onSubmit(f)" class="">
+          <div>
+            <label>Project Title</label>
+            <input type="text" class="form-control" [ngClass]="{'is-invalid':projectName.errors?.required && projectName.touched || projectName.errors?.minlength && projectName.touched}"
+              [(ngModel)]="project.name" name="projectName" #projectName="ngModel" minlength="2" required>
+          </div>
+          <div>
+            <label>User Display Name</label>
+            <input type="text" class="form-control" [ngClass]="{'is-invalid':userName.errors?.required && userName.touched || userName.errors?.minlength && userName.touched}"
+              [(ngModel)]="project.userName" name="userName" #userName="ngModel" minlength="2" required>
+          </div>
+          <div>
+            <label>Project Description</label>
+            <input type="text" class="form-control" [(ngModel)]="project.description" name="projectDescription" #projectDescription="ngModel">
+          </div>
+          <div>
+            <label>Box Width</label>
+            <input type="number" class="form-control" [(ngModel)]="boxWidth" name="boxWidthInput" #boxWidthInput="ngModel">
+          </div>
+          <div>
+            <label>Box Height</label>
+            <input type="number" class="form-control" [(ngModel)]="boxHeight" name="boxHeightInput" #boxHeightInput="ngModel">
+          </div>
+          <div>
+            <label>Box Roundness</label>
+            <input type="number" class="form-control" [(ngModel)]="project.borderRadius" name="borderRadiusInput" #borderRadiusInput="ngModel">
+          </div>
+          <div>
+            <label>Box Margin</label>
+            <input type="number" class="form-control" [(ngModel)]="project.boxMargin" name="boxMarginInput" #boxMarginInput="ngModel">
+          </div>
+          <div>
+            <button type="submit" class="btn btn-primary btn-block">
+              <span class="fa fa-save"></span> Save Project</button>
+          </div>
+        </form>
+        <div>
+            <button class="btn btn-primary btn-block" (click)="duplicateProject()">
+              <span class="fa fa-plus"></span> Duplicate Project</button>
+          </div>
+        <div>
+          <button class="btn btn-primary btn-danger btn-block" (click)="deleteProject()">
+            <span class="fa fa-trash"></span> Delete</button>
+        </div>
+        <div>
+            <button class="btn btn-primary btn-success btn-block" (click)="openColorByNumbers()">
+              <span class="fa fa-trash"></span> Color By Numbers</button>
+          </div>
+        <div>
+          <div *ngIf="projectName.errors?.required && projectName.touched" class="invalid-feedback">
+            Project name is required
+          </div>
+
+          <div *ngIf="userName.errors?.required && userName.touched" class="invalid-feedback">
+            Project name is required
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+    <div class="col-md-7 pac-grid">
+      <div class="grid-box" *ngFor="let item of project.grid; let i = index;" [style.backgroundColor]="item" [style.width.px]="boxWidth"
+        [style.height.px]="boxHeight" [style.borderRadius.px]="project.borderRadius" [style.margin.px]="project.boxMargin"
+        [class.first-of-row]="isLastBoxInRow(i)" (click)="setGridItemColor(i)"></div>
+    </div>
+    <div class="col-md-2">
+      <button class="btn btn-primary btn-sm btn-block" (click)="clearGrid()">
+        <span class="fa fa-eraser"></span> Clear</button>
+      <button class="btn btn-primary btn-sm btn-block" (click)="randomizeGrid()">
+        <span class="fa fa-random"></span> Randomize</button>
+      <button class="btn btn-primary btn-sm btn-block" (click)="setBlankToCurrent()">
+        <span class="fa fa-paint-brush"></span> Set Blank to Current</button>
+      <button class="btn btn-primary btn-sm btn-block" (click)="setBlankToRandom()">
+        <span class="fa fa-paint-brush"></span> Set Blank to Random</button>
+    </div>
+  </div>
+</div>

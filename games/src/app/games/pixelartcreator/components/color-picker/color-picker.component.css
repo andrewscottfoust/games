@@ -1,0 +1,17 @@
+.color-picker-item {
+    width: 20px;
+    height: 20px;
+    display: block;
+    float: left;
+    border: 1px solid transparent;
+}
+
+.color-picker-item.selected {
+    border-color: #eeeeee;
+}
+
+.color-picker-component:after  {
+    content: "";
+    display: table;
+    clear: both;
+}

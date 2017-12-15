@@ -1,0 +1,28 @@
+<div class="container">
+<div class="row">
+    <div class="container">
+        <a href="#" routerLink="/games/pixelartcreator/project/{{id}}" class="btn btn-link">
+            <i class="fa fa-arrow-circle-o-left"></i> Back to project
+        </a>
+    </div>
+</div>
+<div class="row">
+    <div class="container">
+        <h1>{{ project.name }}</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-1">
+        <div *ngFor="let color of colorsLegendArray; let i = index;" class="legend-item">
+            <span class="legend-swatch" [style.backgroundColor]="color">{{ i }}</span>
+        </div>
+    </div>
+    <div class="col-md-10">
+        <div class="grid-box" *ngFor="let item of colorByNumbersGridArray; let i = index;" [style.backgroundColor]="" [style.width.px]="boxWidth"
+            [style.height.px]="boxHeight" [style.borderRadius.px]="project.borderRadius" [style.margin.px]="project.boxMargin"
+            [class.first-of-row]="isLastBoxInRow(i)">
+            <span class="color-num-text">{{ item.colorNum }}</span>
+        </div>
+    </div>
+</div>
+</div>
